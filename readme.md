@@ -1,1 +1,1 @@
-This repository contains code to pull stock prices from various sporting goods securities.  Returns are compared and prices forecasted using Facebook's prophet forecasting API.
+This repository contains various jupyter notebooks used to analyze stock ticker data using the python package FFN and facebook prophet heavily.  

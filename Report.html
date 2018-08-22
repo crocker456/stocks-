@@ -1,0 +1,60 @@
+<!doctype html>
+<html>
+<head>
+<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
+<title>Report</title></head>
+<body><p>&nbsp;</p>
+<h1>Portfolio Cumulative Return Forecasting</h1>
+<h4>Bryant Crocker </h4>
+<h3>Overview:</h3>
+<p>In the following analysis I look at a select number of fashion and sportswear company historical stock prices, calculate returns and forecast cumulative returns for various portfolios using Facebook&#39;s Prophet API.</p>
+<p><strong>Selected Securities:</strong></p>
+<ul>
+<li>nke - Nike Athletics</li>
+<li>ads - Adidas Athletics</li>
+<li>vfc - Vans Footwear Company</li>
+<li>uaa - Under Armor Athletics</li>
+<li>aeo - American Eagle Outfitters</li>
+<li>lb - Lbrands</li>
+<li>goos - Canadian Goose</li>
+<li>ges - Guess?, Inc.</li>
+<li>rl - Ralph Lauren</li>
+
+</ul>
+<p><strong>Start Date: 2017-03-16</strong></p>
+<p><strong>End Date: 2018-08-21</strong></p>
+<h3>Exploratory Data Analysis:</h3>
+<p>Exploratory data analysis, or EDA, was a term coined by my favorite statistician John Tukey.  During exploratory data analysis basic summary statistics and probability distributions are plotted ahead of mathematical models to lead intuition, further questions and data discoveries.  </p>
+<p>To start I will plot a histogram of the returns or percent changes in price of the selected securities.</p>
+<p><strong>Figure 1: Histograms of Selected Securites:</strong></p>
+<p><img src='/Users/bryant/stocks-/INDret.png' alt='INDret' referrerPolicy='no-referrer' /></p>
+<p>There is a good spread of volatility across the securites. It is likely that these can be constructed into a well diversified portfolio that minimizes risk and maximizes returns.</p>
+<p><strong>Figure 2: Correlation Heatmap of Selected Securities</strong><img src='/Users/bryant/stocks-/cormat.png' alt='cormat' referrerPolicy='no-referrer' /></p>
+<p>The securites, in general have a low correlation among each other.  There are no negative correlations presents. It is often good to have negative correlation between assets.  The intuition behind this being that when one asset down another goes up, evening out losses.</p>
+<h3>Portfolio Construction:</h3>
+<p>In this analysis I will use several different methods to compute portfolio weights and compare performance.</p>
+<h3>Method 1: Equal Weight Portfolio:</h3>
+<p>In this portfolio an equal amount is invested into each security.  This is a common place to start with portfolio analysis.</p>
+<p><strong>Figure 3: Equal Weight Portfolio Cumulative Returns and Weight Allocation:</strong><img src='/Users/bryant/stocks-/Equal.png' alt='Equal' referrerPolicy='no-referrer' /></p>
+<p>Investings equally in each security leads to cumulative returns of about 70%.</p>
+<p><strong>Figure 4: One Year Forecast of Cumulative Equal Weight Portfolio Returns:</strong></p>
+<p><img src='/Users/bryant/stocks-/Portfolio2.png' alt='Portfolio2' referrerPolicy='no-referrer' /></p>
+<p>The portfolio is expected to reach cumulative returns of about 150% within one year.</p>
+<h3>Method 2: Inverse Volatility Portfolio:</h3>
+<p>In this portfolio the weight is defined by the inverse volatility of each stock. </p>
+<p><strong>Figure 5: Inverse Volatility Weight Portfolio Cumulative Returns and Weight Allocation:</strong></p>
+<p><img src='/Users/bryant/stocks-/InvVol.png' alt='InvVol' referrerPolicy='no-referrer' /></p>
+<p>The inverse volatility weighting strategy led to just over 60% cumulative return in our observed data.</p>
+<p><strong>Figure 6: One Year Forecast of Cumulative Inverse Volatility Portfolio Returns:</strong></p>
+<p><img src='/Users/bryant/stocks-/Portfolio.png' alt='Portfolio' referrerPolicy='no-referrer' /></p>
+<h3>Method 3: Mean Variance Optimization Portfolio:</h3>
+<p>This portfolio uses the weights that maximizes the sharpe ratio on the efficent frontier.</p>
+<p><strong>Figure 7: Mean Variance Optimization Weight Portfolio Cumulative Returns and Weight Allocation:</strong></p>
+<p><img src='/Users/bryant/stocks-/MeanVar.png' alt='MeanVar' referrerPolicy='no-referrer' /></p>
+<p>The mean variance optimization weighting strategy led to just over 125% cumulative return in our observed data.</p>
+<p><strong>Figure 6: One year Forecast of Cumulative Mean Variance Optimization Portfolio Returns:</strong></p>
+<p><img src='/Users/bryant/stocks-/MeanVarForecast.png' alt='MeanVarForecast' referrerPolicy='no-referrer' /></p>
+<p>&nbsp;</p>
+<p>Code to perform this analysis can be found at: <a href='https://github.com/crocker456/stocks' target='_blank' class='url'>https://github.com/crocker456/stocks</a>-</p>
+</body>
+</html>
